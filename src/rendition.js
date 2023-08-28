@@ -12,6 +12,7 @@ import { EVENTS, DOM_EVENTS } from "./utils/constants";
 
 // Default Views
 import IframeView from "./managers/views/iframe";
+import InlineView from "./managers/views/inline";
 
 // Default View Managers
 import DefaultViewManager from "./managers/default/index";
@@ -197,6 +198,8 @@ class Rendition {
 		// If view is a string, try to load from imported views,
 		if (typeof view == "string" && view === "iframe") {
 			View = IframeView;
+		} else if (typeof view == "string" && view === "inline") {
+			View = InlineView
 		} else {
 			// otherwise, assume we were passed a class function
 			View = view;
